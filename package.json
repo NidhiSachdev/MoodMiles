@@ -6,7 +6,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "build:web": "npx expo export:web && cp vercel.json web-build/vercel.json"
+    "build:web": "npx expo export --platform web && cp vercel.json dist/vercel.json"
   },
   "dependencies": {
     "expo": "~54.0.31",
