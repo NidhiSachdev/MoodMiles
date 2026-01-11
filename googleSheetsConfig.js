@@ -36,6 +36,11 @@ export const logUserRegistration = async (userData) => {
       }),
     });
 
+    // Check if response is ok
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const result = await response.json();
 
     if (result.success) {
@@ -73,6 +78,11 @@ export const logUserLogin = async (email) => {
         loginDate: new Date().toISOString(),
       }),
     });
+
+    // Check if response is ok
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
     const result = await response.json();
 
