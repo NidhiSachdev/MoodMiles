@@ -296,7 +296,11 @@ export default function HomeScreen() {
           onPress: async () => {
             try {
               await AsyncStorage.removeItem(AUTH_STORAGE_KEY);
-              navigation.replace('Login');
+              // Use reset for web compatibility
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'Login' }],
+              });
             } catch (error) {
               console.error('Logout error:', error);
               Alert.alert('Error', 'Failed to logout. Please try again.');
